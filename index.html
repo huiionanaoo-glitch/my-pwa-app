@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知易 - 探玄爻之变，悟造化之心</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-paper: #F4F1EA;
+            --color-ink: #323232;
+            --color-vermillion: #9A2B2B;
+            --color-ochre: #A6937C;
+        }
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: var(--color-paper);
+            color: var(--color-ink);
+            background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+        }
+        .ink-bg {
+            background-image: radial-gradient(circle at 10% 20%, rgba(50, 50, 50, 0.03) 0%, transparent 50%),
+                              radial-gradient(circle at 90% 80%, rgba(154, 43, 43, 0.02) 0%, transparent 40%);
+        }
+        .scroll-hide::-webkit-scrollbar { display: none; }
+        .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        @keyframes taiji-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-taiji { animation: taiji-spin 10s linear infinite; }
+
+        .card-flip {
+            perspective: 1000px;
+        }
+        .card-inner {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .card-inner.is-flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            backface-visibility: hidden;
+            border: 1px solid rgba(166, 147, 124, 0.3);
+        }
+        .card-back {
+            transform: rotateY(180deg);
+        }
+        .seal-font {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="ink-bg min-h-screen">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
